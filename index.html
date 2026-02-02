@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Marsha ❤️</title>
+    <style>
+        body { text-align: center; font-family: sans-serif; background-color: #fff0f6; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; padding: 20px; }
+        img { width: 200px; border-radius: 20px; margin-bottom: 20px; }
+        h1 { color: #ff4d6d; }
+        .btn-container { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; justify-content: center; }
+        button { padding: 15px 25px; font-size: 18px; border: none; border-radius: 10px; cursor: pointer; font-weight: bold; }
+        #yesBtn { background-color: #4CAF50; color: white; transition: 0.3s; }
+        #noBtn { background-color: #f44336; color: white; }
+    </style>
+</head>
+<body>
+
+    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueGZ3bmZqZzR3ZzR3&ep=v1_gifs_search&rid=giphy.gif&ct=g" id="displayImg">
+    <h1 id="question">Marsha, will you be my Valentine?</h1>
+
+    <div class="btn-container">
+        <button id="yesBtn" onclick="celebrate()">Yes</button>
+        <button id="noBtn" onclick="growYes()">No</button>
+    </div>
+
+    <script>
+        let clickCount = 0;
+        const phrases = ["Are you sure?", "Really sure?", "Marsha pleaseeee", "Don't do this to me", "I'm gonna cry...", "You're breaking my heart!"];
+        
+        function growYes() {
+            clickCount++;
+            const yesBtn = document.getElementById('yesBtn');
+            const noBtn = document.getElementById('noBtn');
+            
+            // Make Yes button bigger
+            const currentSize = 18 + (clickCount * 15); // Increases font size each click
+            yesBtn.style.fontSize = `${currentSize}px`;
+            yesBtn.style.padding = `${15 + clickCount * 10}px ${25 + clickCount * 20}px`;
+            
+            // Change No button text
+            if (clickCount < phrases.length) {
+                noBtn.innerText = phrases[clickCount - 1];
+            } else {
+                noBtn.innerText = "Just say yes! ❤️";
+            }
+        }
+
+        function celebrate() {
+            document.body.innerHTML = `
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmZpZzR3ZzR3&ep=v1_gifs_search&rid=giphy.gif&ct=g">
+                <h1 style="color: #ff4d6d;">YAYYYY! Love you Marsha!</h1>
+            `;
+        }
+    </script>
+</body>
+</html>
